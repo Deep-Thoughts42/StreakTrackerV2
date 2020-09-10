@@ -6,6 +6,8 @@ function IndHabit(props) {
             {props.data.habitTitle}
             
 
+            
+
         </div>
 
 

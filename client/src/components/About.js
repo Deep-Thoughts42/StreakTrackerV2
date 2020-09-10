@@ -45,8 +45,8 @@ function About(props){
                 <ListGroupItem></ListGroupItem>
                 
             </ListGroup>
-            <LoginForm/>
-            <RegisterForm></RegisterForm>
+            {/* <LoginForm/>
+            <RegisterForm></RegisterForm> */}
 
             {/* <p>{time}</p>
             <Moment withTitle fromNow>{400000000}</Moment> */}

@@ -26,7 +26,7 @@ function RegisterForm() {
             // Insert the stuff here that I want to change on response, potentially a state that controls history.push
             let logged_info = res.data
             let temp_email = logged_info[1]
-            // setApproved(logged_info[0])
+            setApproved(logged_info[0])
             // setEmail(temp_email)
 
             if (logged_info[0] === true) {
@@ -48,24 +48,13 @@ function RegisterForm() {
         .catch(err => {
             console.log(err)
         })
-          
+        
+        
         
         
         
     };
 
-    // if (approved === true) {
-    //     // localStorage.setItem("LoggedIn", true)
-    //     // localStorage.setItem("UserId", email)
-    //     console.log(email)
-    //     authContextVal.login(email)
-    //     history.push('./')
-        
-
-    // }
-    // else if (approved === false) {
-    //     history.push('./login')
-    // }
 
 
 
@@ -119,8 +108,6 @@ function RegisterForm() {
         </div>
 
     )
-
-
 
 
 }

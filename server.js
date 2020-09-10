@@ -78,7 +78,7 @@ app.post("/register", (req, res) => {
 
   User.find({"userEmail": String(email)})
   .then((result) =>{
-    console.log(result.length)
+    // console.log(result.length)
     if (result.length > 0) {
       res.send([false, null])
      
@@ -88,7 +88,7 @@ app.post("/register", (req, res) => {
       user.save()
       .then((result) => {
         console.log("success")
-        console.log(email)
+        // console.log(email)
         res.send([true, email])
       })
       .catch((err) => {
@@ -103,19 +103,40 @@ app.post("/register", (req, res) => {
   });
 
 
-  
-
-
-  // console.log(data)
-
-
-   
-
-  
 
 }); 
 
+app.post("/login", (req, res) => {
+  let data = req.body
+  let email = data["email"]
+  let password = data["password"]
 
+  User.find({"userEmail": String(email)})
+    .then((result) => {
+      let user_info = result[0]
+
+      let user_password =  user_info["userPassword"]
+      
+      if (String(password) === String(user_password)) {
+        // console.log(user_info)
+        res.send([true, String(email)])
+
+      }
+      else {
+        res.send([false, "Your password is incorrect"])
+
+      }
+
+    })
+    .catch((err) => {
+      // Here I need to say that
+      res.send([false, "Your e-mail is not in the database, please try again"])
+      
+    })
+
+
+
+});
 
 
 app.get("/view-habits", (req, res) => {
@@ -123,7 +144,7 @@ app.get("/view-habits", (req, res) => {
     .then((result) => {
       console.log(result)
       res.json(result)
-
+      
     })
     .catch((err) =>{
       console.log(err)

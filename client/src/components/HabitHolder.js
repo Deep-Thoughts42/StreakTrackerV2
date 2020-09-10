@@ -31,17 +31,6 @@ function HabitContainer() {
 
 
 
-    // // ...
-    // // Getting data and saving it in entryData variable
-    // // ...
-    //   return(
-    //     // ...
-    //     {entryData.map(data => <Child data={data} />)}
-    //     // ...
-    //   )
-    // }
-
-
 
 }
 
