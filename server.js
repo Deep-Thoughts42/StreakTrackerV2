@@ -56,8 +56,10 @@ app.get('/habit-create', (req, res) => {
 
 app.post("/habit-form", (req, res) => {
   // console.log(req.body)
-  let data = req.body
-  let habit = form_data_handler.form_handler(data)
+  let request_data = req.body
+  let data = request_data[0]
+  let user_id = request_data[1]
+  let habit = form_data_handler.form_handler(data, user_id)
 
   habit.save()
     .then((result) => {
@@ -139,17 +141,37 @@ app.post("/login", (req, res) => {
 });
 
 
-app.get("/view-habits", (req, res) => {
-  Habit.find()
+app.get("/view-habits", (req, res, next) => {
+
+  
+  let user_info = req.query
+  let user_id = user_info["userID"]
+
+  Habit.find({"userID" : String(user_id)})
     .then((result) => {
-      console.log(result)
-      res.json(result)
-      
+        res.send(result)
+
+
     })
-    .catch((err) =>{
+    .catch((err) => {
       console.log(err)
 
-    });
+    })
+
+  // let user_info = res.send({"test":"test"})
+
+
+
+    // Habit.find()
+  //   .then((result) => {
+  //     // console.log(result)
+  //     res.json(result)
+      
+  //   })
+  //   .catch((err) =>{
+  //     console.log(err)
+
+  //   });
 
 })
 

@@ -25,6 +25,12 @@ const habitSchema = new Schema({
         type: Date,
         required: true,
         default: Date()
+    },
+
+    userID: {
+        type: String,
+        required: true,
+        
     }
 
 

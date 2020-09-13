@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
+import { AuthContext} from "./AuthContext"
 
 
 
@@ -10,17 +11,26 @@ const HabitForms = (props) => {
 
     const { register, handleSubmit, errors } = useForm();
     let history = useHistory()
+    const authContextVal = useContext(AuthContext)
 
     const onSubmit = data => {
+
+        
         // console.log(data);
-        Axios.post("http://localhost:5000/habit-form", data)
+        let user = localStorage.getItem("user")
+        
+        
+        Axios.post("http://localhost:5000/habit-form", [data, user])
         history.push("/");
+
         
         
     };
 
 
   return (
+    <div>
+    { authContextVal.isAuthenticated === true && 
     <Container fluid="lg">
 
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -52,7 +62,15 @@ const HabitForms = (props) => {
         </Form>
 
     </Container>
+    }
+    { authContextVal.isAuthenticated === false && 
+    <Container fluid="lg">
+        <h1>It appears that you are not logged in, please login before creating a habit.</h1>
+
+    </Container>
+    }
     
+    </div>
   );
 }
 

@@ -40,12 +40,19 @@ const HeaderNav = (props) => {
               <NavItem>
                 <NavLink href="/about">About</NavLink>
               </NavItem>
-              <NavItem>
+              
+              { authContextVal.isAuthenticated === true && 
+              <div>
+                <NavItem>
                 <NavLink href="/habit-form">Habit Form</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/view-habits">Habit View</NavLink>
-              </NavItem>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/view-habits">Habit View</NavLink>
+                </NavItem>
+              </div>
+              }
+
+              
               
             </Nav>
           </Collapse>

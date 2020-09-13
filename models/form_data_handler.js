@@ -25,12 +25,14 @@ let user_handler = function(form) {
 
 
 
-let form_handler = function(form) {
+let form_handler = function(form, user_id) {
     let habit = new Habit({
         habitTitle: form["habit-title"],
         habitDescription: form["habit-desc"],
         habitReason: form["motivation-text"],
-        timeSinceStart: moment()
+        timeSinceStart: moment(),
+        userID: user_id
+
     })
 
     return habit

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 function IndHabit(props) {
     return (
         <div>
-            {props.data.habitTitle}
+            {props.data.timeSinceStart}
             
 
             
