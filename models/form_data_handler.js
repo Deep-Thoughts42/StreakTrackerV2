@@ -4,12 +4,6 @@ const User = require('./users')
 
 
 
-// let form_data = {
-//     'habit-title': 'Exercise',
-//     'motivation-text': 'I want to get jacked.',
-//     'streak-period': 'Monthly',
-//     'habit-desc': "I think it's something very important."
-//   }
 
 let user_handler = function(form) {
     let user = new User({

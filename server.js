@@ -1,13 +1,13 @@
 
 
 const express = require("express");
+const Habit = require("./models/habits");
 let User = require("./models/users");
   app = express();
   port = process.env.PORT || 5000;
   cors = require("cors");
   mongoose = require('mongoose');
   // Schema = mongoose.Schema;
-  Habit = require('./models/habits');
   moment = require('moment');
   form_data_handler = require("./models/form_data_handler");
   
@@ -143,7 +143,6 @@ app.post("/login", (req, res) => {
 
 app.get("/view-habits", (req, res, next) => {
 
-  
   let user_info = req.query
   let user_id = user_info["userID"]
 
@@ -158,23 +157,30 @@ app.get("/view-habits", (req, res, next) => {
 
     })
 
-  // let user_info = res.send({"test":"test"})
 
-
-
-    // Habit.find()
-  //   .then((result) => {
-  //     // console.log(result)
-  //     res.json(result)
-      
-  //   })
-  //   .catch((err) =>{
-  //     console.log(err)
-
-  //   });
 
 })
 
+app.post("/view-habits", (req, res) => {
+  let data = req.body;
+  let id = data[0]
+  let status = data[1]
+
+  if (status === "delete") {
+  Habit.findByIdAndDelete(id, (err) => {
+    if (err) {
+      console.log(err)
+    }
+    else {
+      console.log("Successfully Deleted")
+    }
+
+  })
+
+  }
+
+
+});
 
 
 

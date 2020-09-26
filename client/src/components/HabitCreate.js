@@ -7,7 +7,7 @@ function HabitCreate(){
 
     useEffect(() => {
         // Add in params to see if I can access those from app.get
-        Axios.get("http://localhost:5000/habit-create")
+        Axios.get("/habit-create")
         .then(res => {
             setTestDB(res.data.habitTitle);
         });

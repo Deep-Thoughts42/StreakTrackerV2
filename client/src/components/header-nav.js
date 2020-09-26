@@ -9,12 +9,8 @@ import { AuthContext} from "./AuthContext"
 
 const HeaderNav = (props) => {
   const [collapsed, setCollapsed] = useState(true);
-  // const [loggedIn, setLoggedIn] = useState(localStorage.getItem("LoggedIn"))
   const authContextVal = useContext(AuthContext)
 
-  // useEffect(() => {
-  //   setLoggedIn(localStorage.getItem("LoggedIn"))
-  // }, [])
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 

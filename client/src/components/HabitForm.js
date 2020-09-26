@@ -19,8 +19,8 @@ const HabitForms = (props) => {
         // console.log(data);
         let user = localStorage.getItem("user")
         
-        
-        Axios.post("http://localhost:5000/habit-form", [data, user])
+        // The http localhost was removed
+        Axios.post("/habit-form", [data, user])
         history.push("/");
 
         

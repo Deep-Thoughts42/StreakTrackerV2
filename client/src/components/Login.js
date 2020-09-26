@@ -18,7 +18,7 @@ function LoginForm() {
 
     const onSubmit = data => {
         console.log(data)
-        Axios.post("http://localhost:5000/login", data)
+        Axios.post("./login", data)
             .then((res) => {
                 let logged_info = res.data
 

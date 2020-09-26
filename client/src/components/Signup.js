@@ -21,7 +21,7 @@ function RegisterForm() {
 
     const onSubmit = data => {
         console.log(data);
-        Axios.post("http://localhost:5000/register", data)
+        Axios.post("/register", data)
         .then(res => { 
             // Insert the stuff here that I want to change on response, potentially a state that controls history.push
             let logged_info = res.data
@@ -39,9 +39,9 @@ function RegisterForm() {
                 
         
             }
-            else if (logged_info[0] === false) {
-                history.push('./login')
-            }
+            // else if (logged_info[0] === false) {
+            //     // history.push('./login')
+            // }
 
             
          })
