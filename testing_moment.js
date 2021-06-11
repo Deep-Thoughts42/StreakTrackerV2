@@ -13,7 +13,7 @@ console.log(Date(date))
 
 // console.log(moment('2016-11-23').fromNow(true))
 
-const dbURI = 'mongodb+srv://VedaantV:VedaantV@cluster0.sg9cn.mongodb.net/<streak-tracker>?retryWrites=true&w=majority'
+const dbURI = ''
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => console.log("Connected to db"))
