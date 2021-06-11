@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.json());
 app.listen(port, () => console.log("Backend server live on " + port));
 
-const dbURI = 'mongodb+srv://VedaantV:VedaantV@cluster0.sg9cn.mongodb.net/streak-tracker?retryWrites=true&w=majority'
+const dbURI = ''
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => console.log("Connected to db1"))
